@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+        ">
+
+
+    <bean id="userDaoImpl" class="com.lea.home.homes.impl.UserDaoImpl">
+        <constructor-arg >
+            <list>
+                <bean class="com.lea.home.homes.moduls.User">
+                    <property name="id" value="1"/>
+                    <property name="name" value="John"/>
+                    <property name="surname" value="Jonnatan"/>
+                    <property name="birghDay" value="16.07.2000"/>
+                    <property name="e_mail" value="skiff@ua.fm"/>
+                </bean>
+                <bean class="com.lea.home.homes.moduls.User">
+                    <property name="id" value="2"/>
+                    <property name="name" value="Rex"/>
+                    <property name="surname" value="Smith"/>
+                    <property name="birghDay" value="01.08.1988"/>
+                    <property name="e_mail" value="rex@ua.fm"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="eventDaoIml" class="com.lea.home.homes.impl.EventDaoImpl">
+        <constructor-arg>
+            <list>
+                <bean class="com.lea.home.homes.moduls.Event">
+                    <property name="dateCinema" value="01.01.2017"/>
+                    <property name="timeCinema" value="13:00"/>
+                    <property name="nameCinema" value="Pirates of the Caribbean"/>
+                    <property name="nameAuditoriumCinema" value="Blue_cinema"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <context:property-placeholder location="classpath:cinema/auditorium.properties"/>
+
+
+    <bean id="AuditoriumDaoImpl" class="com.lea.home.homes.impl.AuditoriumDaoImpl">
+        <property name="nameAuditorium" value="${nameAuditorium}"/>
+        <property name="seatsNumberAuditorium"  value="${seatsNumberAuditorium}"/>
+        <property name="seatsVipNumber" value="${seatsVipNumber}"/>
+
+    </bean>
+
+    <bean id ="eventDaoImpl" class="com.lea.home.homes.impl.EventDaoImpl">
+        <constructor-arg>
+            <list>
+                <bean class="com.lea.home.homes.moduls.Event">
+                    <property name="dateCinema" value="01.01.2017"/>
+                    <property name="timeCinema" value="13:00"/>
+                    <property name="nameCinema" value="Пираты карибского моря"/>
+                    <property name="nameAuditoriumCinema" value="Blue_cinema"/>
+                </bean>
+                <bean class="com.lea.home.homes.moduls.Event">
+                    <property name="dateCinema" value="01.01.2017"/>
+                    <property name="timeCinema" value="16:00"/>
+                    <property name="nameCinema" value="Пираты карибского моря"/>
+                    <property name="nameAuditoriumCinema" value="Blue_cinema"/>
+                </bean>
+                <bean class="com.lea.home.homes.moduls.Event">
+                    <property name="dateCinema" value="07.01.2017"/>
+                    <property name="timeCinema" value="19:30"/>
+                    <property name="nameCinema" value="Пираты карибского моря"/>
+                    <property name="nameAuditoriumCinema" value="Blue_cinema"/>
+                </bean>
+                <bean class="com.lea.home.homes.moduls.Event">
+                    <property name="dateCinema" value="07.01.2017"/>
+                    <property name="timeCinema" value="21:00"/>
+                    <property name="nameCinema" value="Пираты карибского моря"/>
+                    <property name="nameAuditoriumCinema" value="Blue_cinema"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+
+</beans>
